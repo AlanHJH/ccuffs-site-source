@@ -47,6 +47,9 @@ class _HomeState extends State<Home> {
         child: Stack(
           textDirection: TextDirection.ltr,
           children: [
+            Container(
+              color: Color.fromRGBO(62, 157, 83, 0.1)
+            ),
             ClipPath(
               child: Container(
                 color: Color.fromRGBO(62, 157, 83, 1.0),

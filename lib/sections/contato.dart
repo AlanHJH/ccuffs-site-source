@@ -10,7 +10,19 @@ class ContatoSection extends StatelessWidget {
       children: [
         Expanded(
             child: Container(
-              color: Colors.blue,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text("Email: alanhenriquejahnel@gmail.com",
+                      textDirection: TextDirection.ltr,
+                      style: TextStyle(
+                          fontWeight: FontWeight.bold,
+                          color: Colors.black,
+                          fontSize: 45,
+                          fontFamily: 'MPLUSRounded1c')
+                  )
+                ],
+              ),
             )
         )
       ],
