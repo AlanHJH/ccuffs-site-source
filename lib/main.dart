@@ -100,56 +100,62 @@ class _HomeState extends State<Home> {
               ),
             ),
             Expanded(
-              flex: 12,
-              child: Row(
-                textDirection: TextDirection.ltr,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Column(
-                    textDirection: TextDirection.ltr,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(30),
-                        child: GitHubIcon,
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(30),
-                        child: LinkedinIcon,
-                      ),
-                    ],
-                  ),
-                  Row(
-                    textDirection: TextDirection.ltr,
-                    children: [
-                      Padding(
-                        padding: EdgeInsets.all(50),
-                        child: ClipRRect(
-                          borderRadius: BorderRadius.circular(450),
-                          child: Image.asset(
-                            "src/images/foto-perfil.jpg",
-                            width: 450,
+                child: Row(
+                  textDirection: TextDirection.ltr,
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: [
+                    Expanded(
+                        flex: 1,
+                        child: Container(
+                          child: Row(
+                            textDirection: TextDirection.ltr,
+                            children: [
+                              Column(
+                                textDirection: TextDirection.ltr,
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Padding(
+                                    padding: EdgeInsets.all(30),
+                                    child: GitHubIcon,
+                                  ),
+                                  Padding(
+                                    padding: EdgeInsets.all(30),
+                                    child: LinkedinIcon,
+                                  ),
+                                ],
+                              ),
+                              Expanded(
+                                flex: 1,
+                                child: Container(
+                                  child: Padding(
+                                    padding: EdgeInsets.all(100),
+                                    child: Avatar(),
+                                  ),
+                                ),
+                              )
+                            ],
+                          )
+                        )
+                    ),
+                    Expanded(
+                        flex: 1,
+                        child: Container(
+                          padding: EdgeInsets.all(20),
+                          child: Text(
+                            "Apaixonado por tecnologia, muito interessado no mundo open-source, adoro desafios e novidades",
+                            textDirection: TextDirection.ltr,
+                            style: TextStyle(
+                                fontSize: 50,
+                                color: Colors.white,
+                                fontFamily: 'MPLUSRounded1c',
+                                fontWeight: FontWeight.bold,
+                                height: 1.1,
+                            ),
                           ),
-                        ),
-                      ),
-                      Container(
-                        padding: EdgeInsets.all(10),
-                        child: Text(
-                          "Oeu me adoro me amo me adoro e adoro mais ainda pq eu me amo e me adoro mto mto mto, e ainda sou muito competente",
-                          textDirection: TextDirection.ltr,
-                          style: TextStyle(
-                              fontSize: 48,
-                              color: Colors.white,
-                              fontFamily: 'MPLUSRounded1c',
-                              fontWeight: FontWeight.bold,
-                              height: 1.1),
-                        ),
-                      ),
-                    ],
-                  )
-                ],
-              )
+                        )
+                    )
+                  ],
+                )
             )
           ],
         )
@@ -173,4 +179,23 @@ class CustomClipPath extends CustomClipper<Path> {
 
   @override
   bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+}
+
+class Avatar extends StatelessWidget {
+  const Avatar({Key key}) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return SizedBox.expand(
+      child: FittedBox(
+          child: ClipRRect(
+            borderRadius: BorderRadius.circular(450),
+            child: Image.asset(
+              "src/images/foto-perfil.jpg",
+              fit: BoxFit.contain,
+            ),
+          )
+      ),
+    );
+  }
 }
